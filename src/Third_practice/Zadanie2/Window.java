@@ -7,17 +7,23 @@ public class Window {
     public Window(Main.Window_type _type) {
         this._type = _type;
     }
-    public static int False_count = 0;
-    public static int True_count = 0;
+    public int False_count = 0;
+    public int True_count = 0;
 
-    public static void False_count_add(){
+    public void False_count_add(){
         False_count++;
     }
-    public static void True_count_add(){
+    public void True_count_add(){
         True_count++;
     }
 
     public synchronized boolean Visit(Citizen visitor){
+
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
 
         if(_type == Main.Window_type.universal){
             return true;
@@ -29,11 +35,6 @@ public class Window {
             if(visitor.GetType() == Main.Visitor_type.business) return true;
         }
 
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
 
         return false;
     }

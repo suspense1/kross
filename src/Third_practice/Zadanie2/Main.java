@@ -24,7 +24,7 @@ public class Main {
         business
     }
 
-    static Window[] windows = {new Window(Window_type.universal), new Window(Window_type.universal), new Window(Window_type.universal)};
+    static Window[] windows = {new Window(Window_type.universal), new Window(Window_type.pozilie), new Window(Window_type.business)};
 
     public static Window GetWindows(){
         int pick = new Random().nextInt(windows.length);
@@ -43,7 +43,9 @@ public class Main {
             thread.start();
 
             for(int i = 0; i < windows.length; i++){
-                System.out.println("Окно: " + i);
+                System.out.println("Окно: " + (i+1));
+                System.out.println("Непринятых: " + windows[i].False_count);
+                System.out.println("Принятых: " + windows[i].True_count);
             }
         }
 
