@@ -1,4 +1,4 @@
-package boardgame;
+package Second_practice.zadanie2;
 
 public class BoardGame {
 
@@ -42,9 +42,5 @@ public class BoardGame {
         return price;
     }
 
-    @Override
-    public String toString() {
-        return this.getName();
-    }
 
 }

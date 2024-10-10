@@ -1,4 +1,4 @@
-package boardgame;
+package Second_practice.zadanie2;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,16 +10,19 @@ public class GameShop {
     private float earnings;
 
     public GameShop(Map<String, BoardGame> incomingGames) {
+
         this.gamesCatalog = incomingGames;
+        this.earnings = 0;
     }
 
-    public BoardGame buyGame(String game, float money) {
-        if (this.gamesCatalog.get(game).getPrice() > money) {
-            return null;
-        }
+    public BoardGame buyGame(String game_name, float cash) {
 
-        earnings += money;
-        return this.gamesCatalog.remove(game);
+            if ((this.gamesCatalog.containsKey(game_name)==true)&&(this.gamesCatalog.get(game_name).getPrice() <= cash)) {
+            earnings += cash;
+            return this.gamesCatalog.remove(game_name);
+            }
+
+        else return null;
     }
 
     public float getEarnings() {

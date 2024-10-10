@@ -1,4 +1,4 @@
-package boardgame;
+package Second_practice.zadanie2;
 
 public class Customer {
 
